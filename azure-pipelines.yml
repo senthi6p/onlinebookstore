@@ -20,7 +20,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean package'
-- task: PublishCodeCoverageResults@1
+- task: PublishBuildArtifacts@1
   inputs:
-    codeCoverageTool: 'JaCoCo'
-    summaryFileLocation: '$(Build.SourcesDirectory)/**/MyCoverage/coverage.cobertura.xml'
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: drop
